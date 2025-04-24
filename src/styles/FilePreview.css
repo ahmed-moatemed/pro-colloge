@@ -1,0 +1,36 @@
+/* src/styles/FilePreview.css */
+.file-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .preview-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+  }
+  
+  .close-button {
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .preview-image,
+  .preview-canvas {
+    max-width: 100%;
+    height: auto;
+  }
