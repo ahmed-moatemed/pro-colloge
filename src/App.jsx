@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar';
 import WeeklySchedule from './components/WeeklySchedule';
 import MaterialsList from './components/MaterialsList';
 import './App.css';
+import TasksList from './components/TasksList';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -54,6 +55,7 @@ function App() {
       </div>
 
       <WeeklySchedule userid={user.id} />
+      <TasksList userid={user.id} />
 
       <MaterialsList userid={user.id} />
 

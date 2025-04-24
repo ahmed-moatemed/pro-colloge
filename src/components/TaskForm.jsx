@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../supabase';
+import { toast } from 'react-toastify';
 import '../styles/TaskForm.css';
 
 function TaskForm({ userid }) {
@@ -10,10 +11,11 @@ function TaskForm({ userid }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const task = { title, subject, duedate, priority, userid };
+    const task = { title, subject, duedate, priority, userid, completed: false };
 
     const { error: supabaseError } = await supabase.from('tasks').insert([task]);
     if (supabaseError) console.error('Supabase error:', supabaseError);
+       toast.success('تم إضافة المهمة بنجاح!');
 
     if (Notification.permission === 'granted') {
       new Notification(`تذكير: ${title} مستحق في ${duedate}`);

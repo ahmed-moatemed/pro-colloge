@@ -1,0 +1,85 @@
+.tasks-list {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
+  }
+  
+  .tasks-list h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tasks-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-item.completed {
+    background-color: #e6ffe6;
+  }
+  
+  .task-details {
+    flex: 1;
+  }
+  
+  .task-details span {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .task-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .check-icon {
+    color: #28a745;
+    font-size: 1.2rem;
+  }
+  
+  .complete-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .complete-button:hover:not(:disabled) {
+    background-color: #0056b3; /* تأثير hover فقط إذا لم يكن معطلًا */
+  }
+  
+  .complete-button:disabled {
+    background-color: #6c757d; /* لون رمادي للزر المعطل */
+    cursor: not-allowed;
+  }
+  
+  .error {
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .task-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .task-actions {
+      margin-top: 0.5rem;
+    }
+  }
