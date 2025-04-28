@@ -31,16 +31,79 @@
   margin-bottom: 0.5rem;
 }
 
-/* .lecture {
-  margin-top: 0.5rem;
-} */
-
 .lecture {
-  background-color: #e9ecef;
-  padding: 0.5rem;
-  border-radius: 4px;
   margin-top: 0.5rem;
-  font-size: 0.875rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: relative;
+}
+
+.lecture-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-form input,
+.edit-form select {
+  padding: 0.25rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form button:hover {
+  background-color: #218838;
+}
+
+.edit-form button[type="button"] {
+  background-color: #6c757d;
+}
+
+.edit-form button[type="button"]:hover {
+  background-color: #5a6268;
 }
 
 .error {
@@ -51,5 +114,10 @@
 @media (max-width: 768px) {
   .schedule-grid {
     grid-template-columns: 1fr;
+  }
+
+  .lecture-actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
