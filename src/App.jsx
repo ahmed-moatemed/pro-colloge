@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from './supabase';
+import { toast } from 'react-toastify';
 import Login from './pages/Login';
 import LectureForm from './components/LectureForm';
 import TaskForm from './components/TaskForm';
@@ -23,7 +24,27 @@ function App() {
 
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user || null);
+      if (event === 'SIGNED_IN') {
+        toast.success('تم تسجيل الدخول بنجاح!');
+      } else if (event === 'PASSWORD_RECOVERY') {
+        toast.info('يرجى إدخال كلمة مرور جديدة.');
+      }
     });
+
+    const handleAuthRedirect = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        console.error('Error handling auth redirect:', error.message);
+        return;
+      }
+      if (data.session) {
+        setUser(data.session.user);
+        if (window.location.hash.includes('type=recovery')) {
+          toast.info('يرجى إدخال كلمة مرور جديدة.');
+        }
+      }
+    };
+    handleAuthRedirect();
 
     return () => authListener.subscription.unsubscribe();
   }, []);
@@ -31,6 +52,7 @@ function App() {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
+    toast.success('تم تسجيل الخروج بنجاح!');
   };
 
   if (!user) {
